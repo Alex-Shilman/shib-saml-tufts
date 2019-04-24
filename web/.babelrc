@@ -1,0 +1,14 @@
+{
+  "presets": [
+    "latest",
+    "stage-1"
+  ],
+  "sourceMap": "inline",
+  "env": {
+    "test": {
+      "plugins": [
+        "transform-es2015-modules-commonjs"
+      ]
+    }
+  }
+}

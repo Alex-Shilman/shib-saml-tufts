@@ -1,0 +1,32 @@
+{
+  "name": "shib-saml-tufts",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "PORT=7000 DEBUG=\"express-server\" babel-node ./bin/www",
+    "start:docker": "DEBUG=\"express-server\" babel-node ./bin/www",
+    "docker:build": "docker build -t shib-saml .",
+    "docker:images": "docker images",
+    "docker:run": "docker run --name node-demo -p 8080:7000 -d node-demo"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "babel-cli": "^6.26.0",
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1",
+    "bluebird": "^3.5.3",
+    "body-parser": "~1.13.1",
+    "cookie-parser": "~1.3.5",
+    "debug": "~2.2.0",
+    "express": "~4.13.0",
+    "express-session": "^1.15.6",
+    "helmet": "^3.16.0",
+    "https": "^1.0.0",
+    "jade": "~1.11.0",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "~1.6.1",
+    "passport": "^0.4.0",
+    "passport-saml": "^1.0.0",
+    "serve-favicon": "~2.3.0"
+  }
+}

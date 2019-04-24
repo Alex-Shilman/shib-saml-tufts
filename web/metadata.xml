@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shib.uit.tufts.edu:7000" ID="https___shib_uit_tufts_edu_7000">
+  <SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+    <KeyDescriptor use="signing">
+      <ds:KeyInfo>
+        <ds:X509Data>
+          <ds:X509Certificate>MIIFtTCCA52gAwIBAgIJAKa3/fmWvjX1MA0GCSqGSIb3DQEBBQUAMEUxCzAJBgNV
+BAYTAlVTMRMwEQYDVQQIEwpTb21lLVN0YXRlMSEwHwYDVQQKExhJbnRlcm5ldCBX
+aWRnaXRzIFB0eSBMdGQwHhcNMTkwNDI0MTgxMDEwWhcNMjExMDEwMTgxMDEwWjBF
+MQswCQYDVQQGEwJVUzETMBEGA1UECBMKU29tZS1TdGF0ZTEhMB8GA1UEChMYSW50
+ZXJuZXQgV2lkZ2l0cyBQdHkgTHRkMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIIC
+CgKCAgEAvGRCADM5V0oZp6yPNFbj6FICqucrKI5EOJSfGTb0tRJywbOPP229/epT
+/iz43msYUiiUYJn6rSlxw70F2jetgNGoLBXWQGnBTQ0vjgj2Fe56lGdOS6eT+++n
+vssaRSmeJvYsnCWGGx+guypFc7bdCLcSJpf3LUKmeo/4TvVtYx9kizZ6Buv3Vb4H
+uRl5jr5JXbCSqsyDTPHs98fSD21hZHS2wDONS38uLZqoGaWgF/KEnmhQgbAE2/ub
+3RPbEF3mhzvDYhtJRjuC1scBjgNeOpulGy3gcrtWG3MRAVYr/w3G0B3PUjSAKqSi
+iLMghiLBLQ3kPBhzEN/5LCN06amA8gVwLsAL1RZzkDpd9RDY3zOOZuzQJm8lUAuI
+drneFV/XSiIWTRzqKf8k/lczF99y4p7g8/+nQJf2Det2eQH7/sSP+SZtxpkBX09/
+9swYdsaqMcIuMzqlUbiFUN2q2mUULw6HV7XkxgjwuDwfq6At3wEFR6rS2sG6QKIh
+LTWzciZUW/+hVeQHxVbYJisGflC7IBK/qkX4NXAHyRAmALfOuFaeDXrncXwiBawm
+cKZFbtgsXfrWgGsTOi10wZf7kgQtyI8+KiO3cufMkZd7OHDKAtOnFKHQp6JDWMd5
+M7bUTLll2JWVS7Zv0BOClcjzZZa6HONSZy1KlqT/OnDIYCepDB0CAwEAAaOBpzCB
+pDAdBgNVHQ4EFgQUwpSt/ZEkJRsnHyZs/BIfFExGhwMwdQYDVR0jBG4wbIAUwpSt
+/ZEkJRsnHyZs/BIfFExGhwOhSaRHMEUxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpT
+b21lLVN0YXRlMSEwHwYDVQQKExhJbnRlcm5ldCBXaWRnaXRzIFB0eSBMdGSCCQCm
+t/35lr419TAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBBQUAA4ICAQBR0FTkjX72
+uYD9/HPm+/6MRdG9xWjRlVSRnfCX4G6R6JY5MWBEKnJ3afzYw2anI75U9rE6cwTo
+50PEmQLj/kWLPcSy4e7smJ43Fiow6JktUDD+0ortBIjThACMJgvISdrN3nTxzXqL
+KrU//n5nz5ZA4jLmQ4yiqCt9Y++jVL9Hpxdfs2w3lmrOomGDp6Q/2iKT7LvY2Lrl
+DCpkePBtM2Mrlb7H3EMO4ehpXQhLrcMch0GpFvoo46IlpIi3xtH2zPZdAF8+1Akq
+v1FEKrDLRfuhMoGTrgxee3r37fmHFNum+2/D1oMYqaJv/htxiexzh2qqyVGXLyRw
+C0XWeZSuCDFdk5LCv3HoMJpHzmvMcgcg2roNHQWhD+iJpXo13v04sLPkl9Yzr8D7
+V9JW+8krgNY/+f4wbBDLto8RGvdexXyYiPhMp/7KPok2KBhUFOndJJt/GBWXMs0k
+qwBKnj3Fe6Aj30KAEISxrpigVg9gB6JqvJZlrjzQiAAW/wjCw/VYaerPK2yDPUHC
+dEs0lvD0duoKD6UDKAus3rl2q1FgCGu8/mbuyv08rpo73SDYmKhr2/56ITcPu+km
+sQh3tPAounKxB/CKd+18+qvRwlaMcrEEneJrtepazTP8tm7wpkJ4hbsYOcRl6lfq
+2IdwhzoIZBqaA21ikdgfzRVu5QzQxM+fRA==
+</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </KeyDescriptor>
+    <NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</NameIDFormat>
+    <AssertionConsumerService index="1" isDefault="true" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shib.uit.tufts.edu:7000/login/callback"/>
+  </SPSSODescriptor>
+</EntityDescriptor>

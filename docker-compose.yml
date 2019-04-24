@@ -1,0 +1,18 @@
+version: '3'
+services:
+  web:
+    build: './web'
+    ports:
+      - "7000:7000"
+  nginx:
+    image: nginx:latest
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./web/public:/usr/local/var/www/static
+      - ./web/config/nginx-conf:/usr/local/etc/nginx/nginx.conf
+    depends_on:
+      - web
+
+
+
