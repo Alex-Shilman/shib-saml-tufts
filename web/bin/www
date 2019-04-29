@@ -25,11 +25,12 @@ app.set('port', port);
 // const key = fs.readFileSync(path.join(__dirname, 'server.key'), 'utf8');
 // const cert = fs.readFileSync(path.join(__dirname, 'server.cert'), 'utf8');
 const options = {
-    key: fs.readFileSync(path.join(__dirname, 'ca', 'server-key.pem')),
-    cert: fs.readFileSync(path.join(__dirname, 'ca', 'server-crt.pem')),
-    ca: fs.readFileSync(path.join(__dirname, 'ca',  'ca-crt.pem')),
+    key: fs.readFileSync(path.join(__dirname, 'ca', 'server-key.pem'), 'UTF-8'),
+    cert: fs.readFileSync(path.join(__dirname, 'ca', 'server-crt.pem'), 'UTF-8'),
+    // ca: fs.readFileSync(path.join(__dirname, 'ca',  'ca-crt.pem'), 'UTF-8'),
 };
-console.log(options)
+console.log(options);
+app.mycerts = options;
 const server = https.createServer(options, app);
 
 /**

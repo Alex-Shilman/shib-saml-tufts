@@ -44,17 +44,13 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use('/', routes);
+// app.use('/', routes);
 app.use('/api', signon);
 app.get('/', function (req, res) {
     if (req.isAuthenticated()) {
-        res.json({
-                user: req.user
-            });
+        res.json({ user: req.user });
     } else {
-        res.json({
-                user: null
-            });
+        res.json({ user: null });
     }
 });
 
@@ -73,20 +69,13 @@ app.post(config.passport.saml.path,
             failureFlash: true
         }),
     function (req, res) {
-        res.redirect('/');
+        res.redirect('/profile');
     }
 );
 
-app.get('/signup', function (req, res) {
-    res.render('signup');
-});
-
 app.get('/profile', function (req, res) {
     if (req.isAuthenticated()) {
-        res.render('profile',
-            {
-                user: req.user
-            });
+        res.json({ user: req.user });
     } else {
         res.redirect('/login');
     }
@@ -99,9 +88,9 @@ app.get('/logout', (req, res) => {
 });
 
 app.get('/metadata', async (req, res) => {
-    const signingCert = await getPKey(path.join(__dirname, 'bin', 'cert.pem'));
-    const decryptionCert = await getPKey(path.join(__dirname, 'bin', 'ca', 'server-key.pem'));
-    const metadata = saml_strategy.generateServiceProviderMetadata(decryptionCert, signingCert);
+    const decryptionCert = await getPKey(path.join(__dirname, 'bin', 'ca', 'server-crt.pem'));
+    // const decryptionCert = await getPKey(path.join(__dirname, 'bin', 'ca', 'server-key.pem'));
+    const metadata = saml_strategy.generateServiceProviderMetadata(decryptionCert, decryptionCert);
 
     fs.writeFile("./metadata.xml", metadata, function(err) {
         if(err) {
