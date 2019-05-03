@@ -2,7 +2,8 @@
   "development": {
     "app": {
       "name": "Tufts SAML app",
-      "port": 3000
+      "port": 3000,
+      "cookieDomain": ".uit.tufts.edu"
     },
     "passport": {
       "strategy": "saml",

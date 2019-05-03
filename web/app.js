@@ -7,10 +7,11 @@ import logger from 'morgan';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import routes from './routes/index';
+import axios from 'axios';
 import signon from './routes/signon';
 import server_config from './config/server_config';
 import Saml_Strategy from './config/passport';
-import { getPKey} from "./utils";
+import { getPKey, getJwt } from "./utils";
 import fs from 'fs';
 import favicon from 'serve-favicon';
 
@@ -55,6 +56,10 @@ app.get('/', function (req, res) {
 });
 
 app.get('/login',
+    (req, res, next) => {
+        req.session.psSignonUrl = req.param('signonUrl');
+        next();
+    },
     passport.authenticate(config.passport.strategy,
         {
             successRedirect: '/',
@@ -73,9 +78,17 @@ app.post(config.passport.saml.path,
     }
 );
 
-app.get('/profile', function (req, res) {
+app.get('/profile', async (req, res) => {
     if (req.isAuthenticated()) {
-        res.json({ user: req.user });
+        const { user: { id }, cookies, session: { psSignonUrl: url } } = req;
+        const BearerToken = await getJwt({ payload: { uid: id } });
+        const payload = { id, BearerToken, url };
+        console.log(payload);
+        Object.keys(cookies).forEach(key => {
+            res.cookie(key, '', { expires: new Date(0), domain:'.uit.tufts.edu', path: '/' })
+        });
+        res.cookie('JWT', BearerToken, { domain: '.tufts.edu' });
+        res.redirect(url);
     } else {
         res.redirect('/login');
     }
@@ -83,20 +96,18 @@ app.get('/profile', function (req, res) {
 
 app.get('/logout', (req, res) => {
     req.logout();
-    // TODO: invalidate session on IP
+    // TODO: invalidate session on IDP
     res.redirect('/');
 });
 
 app.get('/metadata', async (req, res) => {
     const decryptionCert = await getPKey(path.join(__dirname, 'bin', 'ca', 'server-crt.pem'));
-    // const decryptionCert = await getPKey(path.join(__dirname, 'bin', 'ca', 'server-key.pem'));
     const metadata = saml_strategy.generateServiceProviderMetadata(decryptionCert, decryptionCert);
 
     fs.writeFile("./metadata.xml", metadata, function(err) {
         if(err) {
             return console.log(err);
         }
-
         console.log("The file was saved!");
         res.type('application/xml');
         res.send(metadata);
