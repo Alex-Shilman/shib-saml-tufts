@@ -17,6 +17,3 @@ export const getJwt = async ( { pKpath = './bin/jwtRS256.key', payload = {} }) =
         nbf: iat - 100000
     }, pKey, { algorithm: 'RS256' });
 };
-
-export const createCookie = cookies =>
-    Object.keys(cookies).map(cookieKey => `${cookieKey}=${cookies[cookieKey]}`);

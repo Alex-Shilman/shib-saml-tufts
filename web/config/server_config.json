@@ -2,8 +2,7 @@
   "development": {
     "app": {
       "name": "Tufts SAML app",
-      "port": 3000,
-      "cookieDomain": ".uit.tufts.edu"
+      "port": 3000
     },
     "passport": {
       "strategy": "saml",
@@ -18,6 +17,7 @@
       "key": "SESSIONID",
       "secret": "asflas8rqwfjasf spajfwpeawq-erqwirfwapf23rq\":D{E}",
       "cookie": {
+        "domain": ".uit.tufts.edu",
         "httpOnly": true,
         "maxAge": 10800000
       },
@@ -46,6 +46,7 @@
       "key": "SESSIONID",
       "secret": "asflas8rqwfjasf spajfwpeawq-erqwirfwapf23rq\":D{E}",
       "cookie": {
+        "domain": ".uit.tufts.edu",
         "httpOnly": true,
         "maxAge": 10800000
       },

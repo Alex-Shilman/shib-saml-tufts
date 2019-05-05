@@ -1,6 +1,7 @@
 import express from 'express';
 import fs from 'fs';
-import { getPKey, getJwt } from "../utils"
+import { getPKey, getJwt } from "../utils";
+
 const router = express.Router();
 
 const ssoRoutes = ({config, passport, saml_strategy}) => {
@@ -27,19 +28,20 @@ const ssoRoutes = ({config, passport, saml_strategy}) => {
     );
 
     router.get('/profile', async (req, res) => {
+        const { domain } =  config.session.cookie;
+
         if (req.isAuthenticated()) {
             const { user: { id }, cookies, session: { psSignonUrl: url } } = req;
             const BearerToken = await getJwt({ payload: { uid: id } });
-            const payload = { id, BearerToken, url };
-            console.log(payload);
+
             Object.keys(cookies).forEach(key => {
                 res.cookie(key, '', {
                     expires: new Date(0),
-                    domain:'.uit.tufts.edu',
+                    domain,
                     path: '/'
                 });
             });
-            res.cookie('JWT', BearerToken, { domain: '.tufts.edu' });
+            res.cookie('JWT', BearerToken, { domain , httpOnly: true, secure: true });
             res.redirect(url);
         } else {
             res.redirect('/login');
@@ -53,7 +55,7 @@ const ssoRoutes = ({config, passport, saml_strategy}) => {
     });
 
     router.get('/metadata', async (req, res) => {
-        const decryptionCert = await getPKey(path.join(__dirname, 'bin', 'ca', 'server-crt.pem'));
+        const decryptionCert = await getPKey(path.join(__dirname, '..', 'bin', 'ca', 'server-crt.pem'));
         const metadata = saml_strategy.generateServiceProviderMetadata(decryptionCert, decryptionCert);
 
         fs.writeFile("./metadata.xml", metadata, function(err) {
@@ -61,7 +63,7 @@ const ssoRoutes = ({config, passport, saml_strategy}) => {
                 console.log(err);
                 return next(err);
             }
-            console.log("The file was saved!");
+
             res.type('application/xml');
             res.send(metadata);
         });
@@ -69,7 +71,7 @@ const ssoRoutes = ({config, passport, saml_strategy}) => {
     });
 
     return router;
-}
+};
 
 
 export default ssoRoutes;

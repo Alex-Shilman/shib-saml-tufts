@@ -2,25 +2,23 @@ import fs from 'fs';
 import path from 'path';
 import { Strategy as SamlStrategy } from 'passport-saml';
 
-
-// const privateCertPath = path.join(__dirname, '..', 'bin', 'certpkey.pem')
 const privateCertPath = path.join(__dirname, '..', 'bin', 'ca', 'server-key.pem');
 
 class Saml_Strategy {
     create(passport, { passport: { saml } }) {
        const privateKey = fs.readFileSync(privateCertPath, 'UTF-8');
-        console.log('provateCert', privateKey);
         const {
-            path,
             entryPoint,
             issuer,
+            path: callbackPath,
             cert,
         } = saml;
 
         const saml_strategy = new SamlStrategy(
             {
-                callbackUrl: 'https://shib.uit.tufts.edu:7000/login/callback',
+                callbackUrl: `${issuer}${callbackPath}`,
                 identifierFormat: '',
+                forceAuthn: true,
                 decryptionPvk: privateKey,
                 privateCert: privateKey,
                 entryPoint,
@@ -28,7 +26,7 @@ class Saml_Strategy {
                 cert,
             },
             (profile, done) => {
-                console.log('here we are done...', profile);
+                console.log(profile);
                 return done(null, {
                     id: profile.uid,
                 })
