@@ -28,7 +28,7 @@
       }
     }
   },
-  "production": {
+  "staging": {
     "app": {
       "name": "Tufts SAML app",
       "port": 3000
@@ -38,7 +38,7 @@
       "saml": {
         "path": "/login/callback",
         "entryPoint": "https://shib-idp-stage.uit.tufts.edu/idp/profile/SAML2/Redirect/SSO",
-        "issuer": "https://shib.uit.tufts.edu:7000",
+        "issuer": "https://sisweb-dev-03.uit.tufts.edu:7000",
         "cert": "MIID6jCCAtICCQDXD3vNB01NfzANBgkqhkiG9w0BAQUFADCBtjELMAkGA1UEBhMC VVMxFjAUBgNVBAgMDU1hc3NhY2h1c2V0dHMxEzARBgNVBAcMClNvbWVydmlsbGUx GTAXBgNVBAoMEFR1ZnRzIFVuaXZlcnNpdHkxIjAgBgNVBAsMGVR1ZnRzIFRlY2hu b2xvZ3kgU2VydmljZXMxGDAWBgNVBAMMDyoudWl0LnR1ZnRzLmVkdTEhMB8GCSqG SIb3DQEJARYSZXJ5YXphMDFAdHVmdHMuZWR1MB4XDTE0MDkwOTE1NTQwOVoXDTI0 MDkwNjE1NTQwOVowgbYxCzAJBgNVBAYTAlVTMRYwFAYDVQQIDA1NYXNzYWNodXNl dHRzMRMwEQYDVQQHDApTb21lcnZpbGxlMRkwFwYDVQQKDBBUdWZ0cyBVbml2ZXJz aXR5MSIwIAYDVQQLDBlUdWZ0cyBUZWNobm9sb2d5IFNlcnZpY2VzMRgwFgYDVQQD DA8qLnVpdC50dWZ0cy5lZHUxITAfBgkqhkiG9w0BCQEWEmVyeWF6YTAxQHR1ZnRz LmVkdTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMpJek2lPxVpqnVx ZRjRiel7W1ZnAypvY5y2b0IuUFcq/lygLeyXiBni69wmbLXkqzldTX5Npxh+ai32 NxKZ0MAHfTcqScywz0dulRuFa5pOlad3RHwztqvnSlR/CpPIX3VkHLMDIcwntVNX jWKxKxNUVatkb9NIS5tPzB25VB2AEnuyZDqG57Ojxg8cqg/I6qN+Drr/J6CUp2PP M+nHlvxUkxg+zwmbH+qTmGtq0NgxbsfIEQg7Om2gS/FJx2TmfcFW8TXaWCcXFe+S 07HHXqrECElgVNLQxX6OG/xHN0VsfNlmDBbiqa7P+UT9N6PsO8DuS8OZzZVyUsaW 9O0ZcSkCAwEAATANBgkqhkiG9w0BAQUFAAOCAQEARUB186jUFuwFLYhacvW71aq5 jYcfGuoPwFlmPAVKMbkLxjYTvWcn14qz65l757lUCgzMWTSllN1Shzdo8E2xmFmb KEFkN2GiHxDpYYvlE7fQ22ZdD9oKksdlasyuk593z0E1loxt2ykkhv/koC/kVNMO UhbPGV3BqHf7QkBQHzclSAgBRCvu/Dk/mh/xsUWUGCiuS+0Ri5dL32dODNglZ3a7 IcK7r/ey1hAgdmGfkTuKEEx9k3xxy/74oZHUW5hBRG7vvCN5wGAEr3NhfGbXSF99 zFC8M7R0cYwd6LfTtXBwF5WmVMW8qY3COkxN1i/ne9jhFC/5TbcFTq5nXeaR9w=="
       }
     },

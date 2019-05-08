@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "PORT=7000 DEBUG=\"express-server\" babel-node ./bin/www",
+    "start:staging": "NODE_ENV=staging PORT=7000 DEBUG=\"express-server\" babel-node ./bin/www",
     "start:docker": "DEBUG=\"express-server\" babel-node ./bin/www",
     "docker:build": "docker build -t shib-saml .",
     "docker:images": "docker images",
