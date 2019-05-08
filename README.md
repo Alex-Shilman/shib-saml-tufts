@@ -13,8 +13,9 @@ export NVM_DIR="$HOME/.nvm"
 ### 6. `git clone git@gitlab.it.tufts.edu:ashilm01/shib-saml-tufts.git`
 ### 7. `cd shib-saml-tufts/web`
 ### 8. `npm i`
-### 9. `npm run start:staging` (will have to generate certs/keys for new env)
+### 9. (will have to generate certs/keys for new env)
 ### 10. generate meta data by navigating to https://sisweb-dev-03.uit.tufts.edu:7000/metadata
-
+### 11. install pm2 globally `npm install pm2 -g`
+### 11. start server: `pm2 start npm -- run start:staging`
 
 
